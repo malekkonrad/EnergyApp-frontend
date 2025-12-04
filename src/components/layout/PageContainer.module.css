@@ -1,0 +1,8 @@
+.container {
+  min-height: 100vh;
+  /* padding: 2rem 1rem; */
+}
+
+.main {
+  margin: 0 auto;
+}
