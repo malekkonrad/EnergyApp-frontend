@@ -1,0 +1,155 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sliderContainer {
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.displayContainer {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6ee7b7;
+}
+
+.valueDisplay {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.valueNumber {
+  font-size: 3.75rem;
+  font-weight: 700;
+  color: black;
+}
+
+.valueUnit {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.buttonDecrease,
+.buttonIncrease {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.buttonDecrease {
+  background: #334155;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.buttonDecrease:hover:not(:disabled) {
+  background: #475569;
+}
+
+.buttonIncrease {
+  background: #059669;
+  box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.3);
+}
+
+.buttonIncrease:hover:not(:disabled) {
+  background: #10b981;
+}
+
+.buttonDecrease:disabled,
+.buttonIncrease:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.buttonDecrease:focus,
+.buttonIncrease:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(110, 231, 183, 0.4);
+}
+
+.slider {
+  width: 12rem;
+  height: 0.5rem;
+  cursor: pointer;
+  appearance: none;
+  border-radius: 9999px;
+  background: #334155;
+  accent-color: #10b981;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: #10b981;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: #10b981;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.submitButton {
+  width: 100%;
+  border-radius: 1rem;
+  background: linear-gradient(to right, #059669, #14b8a6);
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.4);
+  transition: all 0.2s;
+}
+
+.submitButton:hover {
+  background: linear-gradient(to right, #059669, #0d9488);
+  box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.4);
+}
+
+.submitButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(110, 231, 183, 0.4), 0 0 0 2px #1e293b;
+}
