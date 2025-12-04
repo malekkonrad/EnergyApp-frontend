@@ -1,0 +1,50 @@
+.section {
+  min-height: 100vh;
+  display: flex;
+  
+  justify-content: center;
+  padding: 4rem 0;
+  position: relative;
+}
+
+.section:first-of-type {
+  padding-top: 2rem;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+/* Trapez po lewej stronie - tylko dla pierwszej sekcji */
+.section:first-of-type::before {
+  content: '';
+  position: absolute;
+  top: -5%;
+  left: 0;
+  width: 75%;
+  height: 110%;
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 50%, #6ee7b7 100%);
+  opacity: 0.35;
+  clip-path: polygon(0% 0%, 80% 0%, 35% 100%, 0% 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Dodatkowy mniejszy trapez dla głębi */
+.section:first-of-type::after {
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 0;
+  width: 55%;
+  height: 80%;
+  background: linear-gradient(135deg, #10b981, #059669);
+  opacity: 0.15;
+  clip-path: polygon(0% 0%, 70% 0%, 25% 100%, 0% 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Zapewniamy że zawartość jest nad trapezem */
+.section:first-of-type > * {
+  position: relative;
+  z-index: 1;
+}
