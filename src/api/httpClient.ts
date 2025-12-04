@@ -1,5 +1,6 @@
 // src/api/httpClient.ts
-const API_BASE_URL =  'http://localhost:8080'; //import.meta.env.VITE_API_BASE_URL ??
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL;
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${url}`, {
@@ -10,7 +11,7 @@ async function request<T>(url: string, init?: RequestInit): Promise<T> {
   });
 
   if (!response.ok) {
-    // można rozbudować o obsługę statusów
+    // można rozbudować o obsługę statusów  
     throw new Error(`HTTP error! status: ${response.status}`);
   }
 
