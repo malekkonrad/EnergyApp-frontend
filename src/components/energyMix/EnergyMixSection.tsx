@@ -14,7 +14,7 @@ export const EnergyMixSection: React.FC = () => {
 
   return (
     <section className={styles.section}>
-      <h2 className={styles.title}>Energy Mix Forecast</h2>
+      <h2 className={styles.title}>Energy Mix Forecast in UK</h2>
       <div className={styles.grid}>
         {data.map((day, index) => (
           <DayPieChartCard 

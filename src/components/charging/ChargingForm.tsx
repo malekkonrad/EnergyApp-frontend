@@ -24,7 +24,7 @@ export const ChargingForm = ({ onSubmit }: ChargingFormProps) => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      {/* SLIDER Z LICZBĄ */}
+      {/* Slider */}
       <div className={styles.sliderContainer}>
         <div className={styles.displayContainer}>
           <label className={styles.label}>
@@ -36,7 +36,7 @@ export const ChargingForm = ({ onSubmit }: ChargingFormProps) => {
           </div>
         </div>
 
-        {/* PRZYCISKI */}
+        {/* Buttons*/}
         <div className={styles.controls}>
           <button
             type="button"
@@ -47,7 +47,7 @@ export const ChargingForm = ({ onSubmit }: ChargingFormProps) => {
             −
           </button>
 
-          {/* RANGE SLIDER */}
+          {/* Range slider */}
           <input
             type="range"
             min={1}
@@ -68,7 +68,7 @@ export const ChargingForm = ({ onSubmit }: ChargingFormProps) => {
         </div>
       </div>
 
-      {/* PRZYCISK SUBMIT */}
+      {/* Submit button */}
       <button
         type="submit"
         className={styles.submitButton}

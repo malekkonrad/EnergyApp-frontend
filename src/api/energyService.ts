@@ -1,4 +1,3 @@
-// src/api/energyService.ts
 import { httpClient } from './httpClient';
 import {
   EnergyMixDay,
@@ -28,8 +27,6 @@ export const energyService = {
       hours: String(payload.hours),
     });
 
-    // jeśli Twój endpoint na backendzie nazywa się inaczej, np. `/api/charging-window`,
-    // zmień tylko tę ścieżkę poniżej:
     const response = await httpClient.get<OptimalWindowResponse>(
       `/api/charging-window?${params.toString()}`,
     );

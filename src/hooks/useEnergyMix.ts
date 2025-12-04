@@ -1,4 +1,3 @@
-// src/hooks/useEnergyMix.ts
 import { useEffect, useState } from 'react';
 import { energyService } from '../api/energyService';
 import { EnergyMixDay } from '../api/types';
@@ -18,9 +17,9 @@ export function useEnergyMix() {
         setData(result);
         setError(null);
       } catch (e) {
-        console.error('getEnergyMix error:', e); // <-- dodane
+        console.error('getEnergyMix error:', e); 
         if (!active) return;
-        setError('Nie udało się pobrać miksu energetycznego.');
+        setError('Failed to download energy mix.');
       } finally {
         if (active) {
           setLoading(false);

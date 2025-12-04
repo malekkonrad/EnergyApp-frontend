@@ -1,5 +1,3 @@
-// src/api/types.ts
-
 export type EnergySource =
   | 'biomass'
   | 'nuclear'
@@ -11,14 +9,14 @@ export type EnergySource =
   | 'imports'
   | 'other';
 
-// to, co używa UI
+// for UI
 export interface EnergyMixDay {
   date: string;
   sources: Record<EnergySource, number>;
   cleanEnergyShare: number;
 }
 
-// to, co REALNIE zwraca backend
+// from backend
 export interface RawEnergyMixDay {
   date: string;
   mix: Record<EnergySource, number>;

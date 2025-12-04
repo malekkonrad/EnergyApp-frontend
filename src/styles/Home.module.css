@@ -1,7 +1,6 @@
 .section {
   min-height: 100vh;
   display: flex;
-  
   justify-content: center;
   padding: 4rem 0;
   position: relative;
@@ -13,7 +12,7 @@
   flex-direction: column;
 }
 
-/* Trapez po lewej stronie - tylko dla pierwszej sekcji */
+/* First trapeze in first section */
 .section:first-of-type::before {
   content: '';
   position: absolute;
@@ -28,7 +27,7 @@
   pointer-events: none;
 }
 
-/* Dodatkowy mniejszy trapez dla głębi */
+/* Second trapeze in first section*/
 .section:first-of-type::after {
   content: '';
   position: absolute;
@@ -43,7 +42,6 @@
   pointer-events: none;
 }
 
-/* Zapewniamy że zawartość jest nad trapezem */
 .section:first-of-type > * {
   position: relative;
   z-index: 1;

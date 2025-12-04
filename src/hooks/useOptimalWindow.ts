@@ -1,4 +1,3 @@
-// src/hooks/useOptimalWindow.ts
 import { useState } from 'react';
 import { energyService } from '../api/energyService';
 import { OptimalWindowResponse } from '../api/types';
@@ -16,7 +15,7 @@ export function useOptimalWindow() {
       console.log(res);
       setResult(res);
     } catch (e) {
-      setError('Nie udało się obliczyć optymalnego okna ładowania.');
+      setError('Failed to calculate optimal loading window.');
       setResult(null);
     } finally {
       setLoading(false);

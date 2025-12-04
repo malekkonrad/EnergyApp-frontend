@@ -4,7 +4,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import styles from './DayPieChartCard.module.css';
 
 
-// Kolejność źródeł energii
+// The order of energy sources
 export const ENERGY_SOURCES_ORDER: EnergySource[] = [
   'biomass',
   'coal',
@@ -17,20 +17,20 @@ export const ENERGY_SOURCES_ORDER: EnergySource[] = [
   'other',
 ];
 
-// Kolory dla każdego źródła
+// Colors
 export const ENERGY_COLORS: Record<EnergySource, string> = {
-  biomass: '#7c4a10',  // brązowy (biomasa)
-  coal: '#000000',     // czarny (węgiel)
-  gas: '#103fb5',      // niebieski (gaz)
-  imports: '#2e8d16',  // zielony (import)
-  nuclear: '#ff0000',  // czerwony (atom)
-  solar: '#fbbf24',    // żółty (słońce)
-  wind: '#0ea5e9',     // błękitny (wiatr)
-  hydro: '#00126b',    // ciemnoniebieski (woda)
-  other: '#6b7280',    // szary (inne)
+  biomass: '#7c4a10',
+  coal: '#000000',
+  gas: '#103fb5',  
+  imports: '#2e8d16',
+  nuclear: '#ff0000',
+  solar: '#fbbf24',
+  wind: '#0ea5e9',
+  hydro: '#00126b',
+  other: '#6b7280',
 };
 
-// Nazwy źródeł energii
+// Names
 const ENERGY_LABELS: Record<EnergySource, string> = {
   biomass: 'Biomass',
   coal: 'Coal',
@@ -63,11 +63,11 @@ const getDayLabel = (offset: number): string => {
 
 const RADIAN = Math.PI / 180;
 
-// Etykieta: Nazwa + procent, na zewnątrz koła
+// Label: Name + percentage, outside the circle
 const renderCustomizedLabel = (props: any) => {
   const { cx, cy, midAngle, outerRadius, percent, name } = props;
 
-  if (!percent || percent < 0.001) return null; // pomijamy bardzo małe kawałki
+  if (!percent || percent < 0.001) return null; 
 
   const radius = outerRadius + 18;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -89,7 +89,7 @@ const renderCustomizedLabel = (props: any) => {
   );
 };
 
-// Kolorowe linie do etykiet
+// Colored lines for labels
 const renderLabelLine = (props: any) => {
   const { cx, cy, midAngle, outerRadius, payload } = props;
   const color = payload?.color ?? '#0f172a';
@@ -117,7 +117,7 @@ export const DayPieChartCard: React.FC<DayPieChartCardProps> = ({
   day, 
   dayOffset = 0 
 }) => {
-  // Konwersja danych do formatu Recharts
+  // Converting data to Recharts format
   const chartData = ENERGY_SOURCES_ORDER.map((source) => ({
     key: source,
     name: ENERGY_LABELS[source],
@@ -125,7 +125,7 @@ export const DayPieChartCard: React.FC<DayPieChartCardProps> = ({
     color: ENERGY_COLORS[source],
   })).filter(d => d.value > 0); // opcjonalnie: wywal zera
 
-  // Formatowanie daty (Twój format: "December 3, 2025")
+  // Date formatting 
   const formattedDate = new Date(day.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -137,7 +137,7 @@ export const DayPieChartCard: React.FC<DayPieChartCardProps> = ({
     <div className={styles.card}>
       <div className={styles.cardContent}>
         
-        {/* Nagłówek - dzień i data */}
+        {/* Header - day and date*/}
         <div className={styles.header}>
           <h3 className={styles.title}>
             {getDayLabel(dayOffset)}
@@ -147,7 +147,7 @@ export const DayPieChartCard: React.FC<DayPieChartCardProps> = ({
           </p>
         </div>
 
-        {/* Badge z % czystej energii */}
+        {/* Badge with % clean energy*/}
         <div className={styles.badge}>
           <span className={styles.badgeDot} />
           <span>
@@ -155,7 +155,7 @@ export const DayPieChartCard: React.FC<DayPieChartCardProps> = ({
           </span>
         </div>
 
-        {/* Wykres kołowy */}
+        {/* Charts */}
         <div className={styles.chartContainer}>
           <ResponsiveContainer width="100%" height="100%">
             <PieChart margin={{ top: 10, right: 30, bottom: 10, left: 30 }}>
